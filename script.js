@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // --- QR-Code Generator ---
     function generateQrCode() {
-        const text = "Hallo, ich will mein Rezept ausgeben";
+        const text = "Hallo, ich möchte gern mein Rezept bei Ihnen einlösen. Könnten Sie mir bitte mitteilen, wann ich es abholen kann?";
         const whatsappUrl = `https://wa.me/4915678732257?text=${encodeURIComponent(text)}`;
         const qrCodeApiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(whatsappUrl)}`;
         const qrCodeImage = document.getElementById('whatsapp-qrcode');
