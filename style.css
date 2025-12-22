@@ -3,14 +3,16 @@
 
 /* Farbvariablen */
 :root {
-    --primary-color: #E43D21; /* Das gewünschte Rot */
+    --primary-color: #E43D21;
+    /* Das gewünschte Rot */
     --primary-color-darker: #c42a0e;
     --text-color: #333;
     --light-gray: #f8f9fa;
     --white: #FFFFFF;
     --whatsapp-green: #25D366;
     --whatsapp-green-darker: #128C7E;
-    --animation-delay: 0s; /* Standard-Animationsverzögerung */
+    --animation-delay: 0s;
+    /* Standard-Animationsverzögerung */
 }
 
 body, html {
@@ -54,6 +56,7 @@ body.fade-out {
     0%, 100% {
         transform: scale(1);
     }
+
     50% {
         transform: scale(1.1);
     }
@@ -72,6 +75,7 @@ body.fade-out {
     from, to {
         opacity: 1;
     }
+
     50% {
         opacity: 0;
     }
@@ -160,7 +164,7 @@ body.fade-out {
 
 .service-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 1rem 3rem rgba(0,0,0,.175)!important;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175) !important;
 }
 
 .service-card .display-4 {
@@ -192,10 +196,12 @@ body.fade-out {
     border-radius: 0.5rem;
     overflow: hidden;
 }
+
 #kontakt a {
     color: var(--primary-color);
     text-decoration: none;
 }
+
 #kontakt a:hover {
     text-decoration: underline;
 }
@@ -213,11 +219,13 @@ footer {
 .bg-primary-color {
     background-color: var(--primary-color);
 }
+
 .btn-primary-color {
-     background-color: var(--primary-color);
-     border-color: var(--primary-color);
-     color: var(--white);
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--white);
 }
+
 .btn-primary-color:hover {
     background-color: var(--primary-color-darker);
     border-color: var(--primary-color-darker);
@@ -229,14 +237,59 @@ footer {
     margin-right: auto !important;
     margin-left: 0 !important;
 }
+
 [dir="rtl"] .me-2 {
     margin-left: 0.5rem !important;
     margin-right: 0 !important;
 }
+
 [dir="rtl"] .me-3 {
     margin-left: 1rem !important;
     margin-right: 0 !important;
 }
+
 [dir="rtl"] .text-start {
     text-align: right !important;
+}
+
+/* Holiday Widget - Unten Rechts */
+.holiday-widget {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    /* Ändere dies zu 'left: 20px', wenn es links sein soll */
+    z-index: 1050;
+    max-width: 320px;
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.holiday-widget.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+}
+
+.holiday-table {
+    font-size: 0.9rem;
+}
+
+.holiday-table td {
+    padding: 6px 10px;
+}
+
+/* Für Mobile etwas kleiner und mittig, falls gewünscht */
+@media (max-width: 576px) {
+    .holiday-widget {
+        bottom: 10px;
+        right: 10px;
+        left: 10px;
+        /* Auf Handy volle Breite minus Rand */
+        width: auto;
+        max-width: none;
+    }
 }

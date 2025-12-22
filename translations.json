@@ -33,7 +33,16 @@
     "hoursMoFr": "Montag - Freitag: 08:00 - 19:00 Uhr",
     "hoursSa": "Samstag: 10:00 - 19:00 Uhr",
     "footerMotto": "Ihre Gesundheit ist unser Antrieb.",
-    "footerRights": "© 2025 - <span id=\"year\"></span> Sano-Apotheke. Alle Rechte vorbehalten."
+    "footerRights": "© 2025 - <span id=\"year\"></span> Sano-Apotheke. Alle Rechte vorbehalten.",
+    "holidayTitle": "Weihnachts-Öffnungszeiten",
+    "statusClosed": "Feiertag",
+    "dayMon": "Mo",
+    "dayTue": "Di",
+    "dayWed": "Mi",
+    "dayThu": "Do",
+    "dayFri": "Fr",
+    "daySat": "Sa",
+    "daySun": "So"
   },
   "en": {
     "siteTitle": "Sano-Apotheke",
@@ -69,7 +78,16 @@
     "hoursMoFr": "Monday - Friday: 8:00 AM - 7:00 PM",
     "hoursSa": "Saturday: 10:00 AM - 7:00 PM",
     "footerMotto": "Your health is our motivation.",
-    "footerRights": "© 2025 - <span id=\"year\"></span> Sano-Apotheke. All rights reserved."
+    "footerRights": "© 2025 - <span id=\"year\"></span> Sano-Apotheke. All rights reserved.",
+    "holidayTitle": "Holiday Opening Hours",
+    "statusClosed": "Public Holiday",
+    "dayMon": "Mon",
+    "dayTue": "Tue",
+    "dayWed": "Wed",
+    "dayThu": "Thu",
+    "dayFri": "Fri",
+    "daySat": "Sat",
+    "daySun": "Sun"
   },
   "ar": {
     "siteTitle": "صيدلية سانو",
@@ -105,7 +123,16 @@
     "hoursMoFr": "الاثنين - الجمعة: 08:00 - 19:00",
     "hoursSa": "السبت: 10:00 - 19:00",
     "footerMotto": "صحتكم هي دافعنا.",
-    "footerRights": "© 2025 - <span id=\"year\"></span> صيدلية سانو. كل الحقوق محفوظة."
+    "footerRights": "© 2025 - <span id=\"year\"></span> صيدلية سانو. كل الحقوق محفوظة.",
+    "holidayTitle": "ساعات العمل في العطلات",
+    "statusClosed": "عطلة رسمية",
+    "dayMon": "الاثنين",
+    "dayTue": "الثلاثاء",
+    "dayWed": "الأربعاء",
+    "dayThu": "الخميس",
+    "dayFri": "الجمعة",
+    "daySat": "السبت",
+    "daySun": "الأحد"
   },
   "ru": {
     "siteTitle": "Аптека Сано",
@@ -141,7 +168,16 @@
     "hoursMoFr": "Понедельник - Пятница: 08:00 - 19:00",
     "hoursSa": "Суббота: 10:00 - 19:00",
     "footerMotto": "Ваше здоровье - наша мотивация.",
-    "footerRights": "© 2025 - <span id=\"year\"></span> Аптека Сано. Все права защищены."
+    "footerRights": "© 2025 - <span id=\"year\"></span> Аптека Сано. Все права защищены.",
+    "holidayTitle": "Часы работы в праздники",
+    "statusClosed": "Выходной",
+    "dayMon": "Пн",
+    "dayTue": "Вт",
+    "dayWed": "Ср",
+    "dayThu": "Чт",
+    "dayFri": "Пт",
+    "daySat": "Сб",
+    "daySun": "Вс"
   },
   "uk": {
     "siteTitle": "Аптека Сано",
@@ -177,6 +213,15 @@
     "hoursMoFr": "Понеділок - П'ятниця: 08:00 - 19:00",
     "hoursSa": "Субота: 10:00 - 19:00",
     "footerMotto": "Ваше здоров'я - наша мотивація.",
-    "footerRights": "© 2025 - <span id=\"year\"></span> Аптека Сано. Всі права захищені."
+    "footerRights": "© 2025 - <span id=\"year\"></span> Аптека Сано. Всі права захищені.",
+    "holidayTitle": "Графік роботи у свята",
+    "statusClosed": "Вихідний",
+    "dayMon": "Пн",
+    "dayTue": "Вт",
+    "dayWed": "Ср",
+    "dayThu": "Чт",
+    "dayFri": "Пт",
+    "daySat": "Сб",
+    "daySun": "Нд"
   }
 }
