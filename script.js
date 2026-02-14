@@ -143,5 +143,17 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  function generateGesunddeQrCode() {
+    const gesunddeUrl = "https://gesund.de/qrcode/8fd8f5e8-db99-40c0-9544-91c1ebc2dbe9";
+    const qrCodeApiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(
+      gesunddeUrl
+    )}`;
+    const gesunddeQrImage = document.getElementById("gesundde-qrcode");
+    if (gesunddeQrImage) {
+      gesunddeQrImage.src = qrCodeApiUrl;
+    }
+  }
+
   generateQrCode();
+  generateGesunddeQrCode();
 });
