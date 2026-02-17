@@ -1,13 +1,7 @@
 # Sano Apotheke
 
-## Project Overview
+This is a private pharmacy project. All changes require approval from the pharmacy owner.
 
-This repository is intended for internal use only.
+## Dokumentation
 
-## Installation Instructions
-
-(Include installation instructions here)
-
-## Usage Instructions
-
-(Include usage instructions here)
+Vollständige Projektdokumentation ist in deutscher Sprache verfügbar.
