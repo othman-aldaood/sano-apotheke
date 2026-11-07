@@ -12,6 +12,8 @@
     --whatsapp-dark: #128C7E;
     --gesundde: #d13f4b;
     --gesundde-dark: #b83540;
+    --wolt: #009de0;
+    --wolt-dark: #007bb0;
     --text: #1a1a1a;
     --text-muted: #5c5c5c;
     --border: #e5e5e5;
@@ -76,6 +78,8 @@ body.fade-out { opacity: 0; transition: opacity 0.3s ease-out; }
 .btn-nav-whatsapp:hover { background: var(--whatsapp-dark) !important; color: #fff !important; transform: translateY(-2px); }
 .btn-nav-gesundde { background: var(--gesundde) !important; color: #fff !important; }
 .btn-nav-gesundde:hover { background: var(--gesundde-dark) !important; color: #fff !important; transform: translateY(-2px); }
+.btn-nav-wolt { background: var(--wolt) !important; color: #fff !important; }
+.btn-nav-wolt:hover { background: var(--wolt-dark) !important; color: #fff !important; transform: translateY(-2px); }
 
 /* Mobile Order Bar - Nur auf Handy sichtbar, separat von Navbar */
 .mobile-order-bar {
@@ -144,6 +148,19 @@ body.fade-out { opacity: 0; transition: opacity 0.3s ease-out; }
     background: var(--gesundde-dark);
     color: #fff !important;
     transform: translateY(-2px);
+}
+.mobile-order-wolt {
+    background: var(--wolt);
+}
+.mobile-order-wolt:hover {
+    background: var(--wolt-dark);
+    color: #fff !important;
+    transform: translateY(-2px);
+}
+/* Drei Buttons auf schmalen Handys */
+@media (max-width: 420px) {
+    .mobile-order-btns { gap: 8px; }
+    .mobile-order-btn { padding: 10px 8px; font-size: 0.85rem; gap: 6px; }
 }
 
 /* Hero Carousel - Verbessert */
@@ -371,6 +388,62 @@ body.fade-out { opacity: 0; transition: opacity 0.3s ease-out; }
 .gesundde-box p { color: var(--text-muted); font-size: 1.05rem; line-height: 1.7; }
 .gesundde-qr-img { max-width: 220px; border-radius: 8px; }
 .btn-gesundde.btn-lg { padding: 0.75rem 1.75rem; font-size: 1.05rem; }
+
+/* Wolt */
+.btn-wolt {
+    background: var(--wolt);
+    color: #fff !important;
+    padding: 0.6rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 600;
+    border: none;
+    transition: all 0.3s ease;
+}
+.btn-wolt:hover { background: var(--wolt-dark); color: #fff !important; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,157,224,0.3); }
+.btn-wolt.btn-lg { padding: 0.75rem 1.75rem; font-size: 1.05rem; }
+
+.wolt-box {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2.5rem 3rem;
+    margin-top: 3rem;
+    transition: box-shadow 0.3s ease;
+}
+.wolt-box:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+.wolt-img-link {
+    display: inline-block;
+    text-decoration: none !important;
+    cursor: pointer;
+    transition: transform 0.2s, opacity 0.2s;
+}
+.wolt-img-link:hover { opacity: 0.9; transform: scale(1.02); }
+.wolt-badge {
+    width: 320px;
+    max-width: 100%;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 2rem;
+    border-radius: 24px;
+    background: linear-gradient(145deg, var(--wolt), var(--wolt-dark));
+    color: #fff;
+    box-shadow: 0 10px 30px rgba(0,157,224,0.25);
+}
+.wolt-logo { font-size: 3.5rem; font-weight: 700; letter-spacing: -1px; line-height: 1; }
+.wolt-badge-icon { font-size: 3rem; line-height: 1; }
+.wolt-badge-text { font-size: 1.05rem; font-weight: 500; text-align: center; }
+@media (max-width: 768px) {
+    .wolt-box { padding: 2rem 1.5rem; }
+    .wolt-badge { width: 240px; }
+    .wolt-logo { font-size: 2.75rem; }
+}
+.wolt-box h3 { font-size: 1.4rem; font-weight: 600; color: var(--wolt); margin-bottom: 1rem; }
+.wolt-box p { color: var(--text-muted); font-size: 1.05rem; line-height: 1.7; }
+.wolt-qr-img { max-width: 220px; border-radius: 8px; }
 
 .qr-img { max-width: 160px; border-radius: 6px; }
 
