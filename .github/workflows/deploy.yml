@@ -1,0 +1,27 @@
+name: Deploy to Strato via SFTP
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: 🚀 Deploy to Strato
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚚 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 📂 Sync files to Strato via SFTP
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+        with:
+          username: ${{ secrets.STRATO_USERNAME }}
+          server: ${{ secrets.STRATO_SERVER }}
+          port: 22
+          password: ${{ secrets.STRATO_PASSWORD }}
+          local_path: './*'
+          remote_path: './'
+          sftp_only: true
+          delete_remote_files: false
