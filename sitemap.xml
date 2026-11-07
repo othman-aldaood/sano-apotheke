@@ -1,15 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Hauptseite -->
   <url>
     <loc>https://sano-apotheke.de/</loc>
     <lastmod>2026-11-07</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+
+    <!-- Sprachunterstützung -->
+    <xhtml:link rel="alternate" hreflang="de" href="https://sano-apotheke.de/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sano-apotheke.de/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://sano-apotheke.de/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://sano-apotheke.de/" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://sano-apotheke.de/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sano-apotheke.de/" />
+
+    <!-- Google Bildersuche -->
+    <image:image>
+      <image:loc>https://sano-apotheke.de/img/hero/hero-1-1920.webp</image:loc>
+      <image:title>Sano-Apotheke Verkaufsraum Berlin-Köpenick</image:title>
+      <image:caption>Verkaufsraum und Beratung in der Sano-Apotheke Köpenick</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://sano-apotheke.de/img/logos/Deutsche_Apotheke_Logo.svg</image:loc>
+      <image:title>Sano-Apotheke Logo</image:title>
+    </image:image>
   </url>
+
+  <!-- Impressum & Datenschutz -->
   <url>
     <loc>https://sano-apotheke.de/impressum.html</loc>
     <lastmod>2026-11-07</lastmod>
-    <changefreq>yearly</changefreq>
+    <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
+
 </urlset>
