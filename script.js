@@ -1,13 +1,18 @@
 document.addEventListener("DOMContentLoaded", function () {
   // --- Intro & Outro Animations ---
   const preloader = document.getElementById("preloader");
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // Intro
-  window.addEventListener("load", () => {
+  // Intro: Preloader ausblenden, sobald das HTML bereit ist
+  // (nicht erst nach allen Bildern – sonst wartet der Besucher unnötig lange).
+  function hidePreloader() {
     if (preloader) {
       preloader.classList.add("hidden");
     }
-  });
+  }
+  setTimeout(hidePreloader, prefersReducedMotion ? 0 : 300);
+  // Sicherheitsnetz, falls etwas hängt
+  window.addEventListener("load", hidePreloader);
 
   // Outro
   const internalLinks = document.querySelectorAll(
@@ -29,18 +34,29 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // --- Keyboard (Typewriter) Effect ---
+  let typewriterTimer = null;
   function typewriter(element) {
     if (!element) return;
     const text = element.getAttribute("data-lang-text") || element.textContent;
-    element.innerHTML = ""; // Leert den Inhalt zu Beginn
+    // Screenreader lesen den vollständigen Text, nicht Buchstabe für Buchstabe
+    element.setAttribute("aria-label", text);
+
+    // Bei "Bewegung reduzieren" kein Tipp-Effekt
+    if (prefersReducedMotion) {
+      element.textContent = text;
+      return;
+    }
+
+    clearTimeout(typewriterTimer); // Laufenden Effekt beim Sprachwechsel stoppen
+    element.textContent = ""; // Leert den Inhalt zu Beginn
     element.classList.add("typing-cursor");
     let i = 0;
 
     function type() {
       if (i < text.length) {
-        element.innerHTML += text.charAt(i);
+        element.textContent += text.charAt(i);
         i++;
-        setTimeout(type, 70); // Geschwindigkeit des Tippens
+        typewriterTimer = setTimeout(type, 70); // Geschwindigkeit des Tippens
       } else {
         element.classList.remove("typing-cursor"); // Cursor entfernen
       }
@@ -50,23 +66,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // --- Scroll Animations (Intersection Observer) ---
   const animatedElements = document.querySelectorAll(".animated-element");
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    {
-      threshold: 0.1, // Animation startet, wenn 10% des Elements sichtbar sind
-    }
-  );
+  if (prefersReducedMotion || !("IntersectionObserver" in window)) {
+    animatedElements.forEach((element) => element.classList.add("visible"));
+  } else {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.1, // Animation startet, wenn 10% des Elements sichtbar sind
+      }
+    );
 
-  animatedElements.forEach((element) => {
-    observer.observe(element);
-  });
+    animatedElements.forEach((element) => {
+      observer.observe(element);
+    });
+  }
 
   // --- Sprach-Logik ---
   let translations = {};
@@ -103,6 +123,14 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
+    // Meta-Tags (z. B. Beschreibung) mitübersetzen
+    document.querySelectorAll("[data-lang-meta]").forEach((element) => {
+      const key = element.getAttribute("data-lang-meta");
+      if (translations[lang][key]) {
+        element.setAttribute("content", translations[lang][key]);
+      }
+    });
+
     updateCopyrightYear();
 
     // Startet den Typewriter-Effekt nach dem Laden der Sprache neu
@@ -127,45 +155,38 @@ document.addEventListener("DOMContentLoaded", function () {
 
   loadTranslations();
 
-  // --- QR-Code Generator ---
-  function generateQrCode() {
-    const text =
-      "Hallo, ich möchte gern mein Rezept bei Ihnen einlösen. Könnten Sie mir bitte mitteilen, wann ich es abholen kann?";
-    const whatsappUrl = `https://wa.me/4915678732257?text=${encodeURIComponent(
-      text
-    )}`;
-    const qrCodeApiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(
-      whatsappUrl
-    )}`;
-    const qrCodeImage = document.getElementById("whatsapp-qrcode");
-    if (qrCodeImage) {
-      qrCodeImage.src = qrCodeApiUrl;
-    }
+  // --- Google Maps erst nach Zustimmung laden (DSGVO) ---
+  const MAP_SRC =
+    "https://maps.google.com/maps?q=Sano-Apotheke,+Freiheit+1,+12555+Berlin&z=16&output=embed";
+
+  function loadMap() {
+    const wrapper = document.getElementById("map-wrapper");
+    if (!wrapper || wrapper.querySelector("iframe")) return;
+    const iframe = document.createElement("iframe");
+    iframe.src = MAP_SRC;
+    iframe.title = "Karte: Sano-Apotheke, Freiheit 1, 12555 Berlin";
+    iframe.width = "100%";
+    iframe.height = "350";
+    iframe.style.border = "0";
+    iframe.loading = "lazy";
+    iframe.referrerPolicy = "no-referrer-when-downgrade";
+    iframe.allowFullscreen = true;
+    wrapper.innerHTML = "";
+    wrapper.appendChild(iframe);
   }
 
-  function generateGesunddeQrCode() {
-    const gesunddeUrl = "https://gesund.de/qrcode/8fd8f5e8-db99-40c0-9544-91c1ebc2dbe9";
-    const qrCodeApiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(
-      gesunddeUrl
-    )}`;
-    const gesunddeQrImage = document.getElementById("gesundde-qrcode");
-    if (gesunddeQrImage) {
-      gesunddeQrImage.src = qrCodeApiUrl;
-    }
+  const mapButton = document.getElementById("map-load-btn");
+  if (mapButton) {
+    mapButton.addEventListener("click", function () {
+      localStorage.setItem("mapConsent", "yes");
+      loadMap();
+    });
+  }
+  // Wer bereits zugestimmt hat, sieht die Karte direkt
+  if (localStorage.getItem("mapConsent") === "yes") {
+    loadMap();
   }
 
-  function generateWoltQrCode() {
-    const woltUrl = "https://wolt.com/de/deu/berlin/venue/sano-apotheke";
-    const qrCodeApiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(
-      woltUrl
-    )}`;
-    const woltQrImage = document.getElementById("wolt-qrcode");
-    if (woltQrImage) {
-      woltQrImage.src = qrCodeApiUrl;
-    }
-  }
-
-  generateQrCode();
-  generateGesunddeQrCode();
-  generateWoltQrCode();
+  // QR-Codes sind jetzt statische Dateien unter img/qr/
+  // (keine Weitergabe von Daten an externe QR-Dienste).
 });
