@@ -154,6 +154,18 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  function generateWoltQrCode() {
+    const woltUrl = "https://wolt.com/de/deu/berlin/venue/sano-apotheke";
+    const qrCodeApiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(
+      woltUrl
+    )}`;
+    const woltQrImage = document.getElementById("wolt-qrcode");
+    if (woltQrImage) {
+      woltQrImage.src = qrCodeApiUrl;
+    }
+  }
+
   generateQrCode();
   generateGesunddeQrCode();
+  generateWoltQrCode();
 });
