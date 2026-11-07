@@ -1,0 +1,26 @@
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDEs and Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.kilo/
+
+# Temporary files and logs
+*.log
+*.tmp
+*.temp
+
+# Local environment / secrets
+.env
+.env.local
+.env.*.local
