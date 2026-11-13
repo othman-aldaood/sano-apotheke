@@ -86,11 +86,30 @@ body.fade-out { opacity: 0; transition: opacity 0.3s ease-out; }
 .nav-link:hover { color: var(--primary) !important; }
 
 .btn-nav {
-    padding: 0.4rem 0.9rem !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 0.4rem 0.85rem !important;
     border-radius: 6px;
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     transition: all 0.3s ease;
+    white-space: nowrap;
+}
+.btn-nav-icon {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+    display: inline-block;
+    vertical-align: middle;
+}
+.btn-nav-logo {
+    height: 13px;
+    width: auto;
+    object-fit: contain;
+    display: inline-block;
+    vertical-align: middle;
 }
 .btn-nav-whatsapp { background: var(--whatsapp) !important; color: #fff !important; }
 .btn-nav-whatsapp:hover { background: var(--whatsapp-dark) !important; color: #fff !important; transform: translateY(-2px); }
@@ -145,13 +164,28 @@ body.fade-out { opacity: 0; transition: opacity 0.3s ease-out; }
     align-items: center;
     justify-content: center;
     gap: 8px;
-    padding: 12px 16px;
+    padding: 12px 14px;
     border-radius: 8px;
     font-weight: 600;
     font-size: 0.95rem;
     color: #fff !important;
     text-decoration: none !important;
     transition: all 0.3s ease;
+    white-space: nowrap;
+}
+.mobile-brand-icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    display: inline-block;
+    vertical-align: middle;
+}
+.mobile-brand-logo {
+    height: 14px;
+    width: auto;
+    object-fit: contain;
+    display: inline-block;
+    vertical-align: middle;
 }
 .mobile-order-whatsapp {
     background: var(--whatsapp);
@@ -199,13 +233,17 @@ body.fade-out { opacity: 0; transition: opacity 0.3s ease-out; }
 /* Mehrere Buttons auf schmalen Handys */
 @media (max-width: 576px) {
     .mobile-order-btns { gap: 6px; }
-    .mobile-order-btn { padding: 10px 6px; font-size: 0.8rem; gap: 4px; }
-    .mobile-order-call { flex: 0 0 42px; max-width: 42px; padding: 10px 0; }
+    .mobile-order-btn { padding: 10px 4px; font-size: 0.78rem; gap: 4px; }
+    .mobile-order-call { flex: 0 0 40px; max-width: 40px; padding: 10px 0; }
+    .mobile-brand-icon { width: 18px; height: 18px; }
+    .mobile-brand-logo { height: 12px; }
 }
 @media (max-width: 460px) {
     .mobile-order-btn span { display: none; } /* Nur Icons auf schmalen Geräten */
-    .mobile-order-btn { padding: 10px 0; max-width: 60px; }
+    .mobile-order-btn { padding: 11px 0; max-width: 58px; }
     .mobile-order-btn i { font-size: 1.25rem; }
+    .mobile-brand-icon { width: 22px; height: 22px; }
+    .mobile-brand-logo { height: 13px; }
 }
 
 /* Hero Carousel - Verbessert */
@@ -392,6 +430,13 @@ body.fade-out { opacity: 0; transition: opacity 0.3s ease-out; }
 }
 .order-step:hover .step-num { transform: scale(1.1); background: var(--primary-dark); }
 
+/* Buttons & Badges */
+.btn-brand-icon {
+    display: inline-block;
+    vertical-align: middle;
+    object-fit: contain;
+}
+
 .btn-whatsapp {
     background: var(--whatsapp);
     color: #fff;
@@ -399,19 +444,11 @@ body.fade-out { opacity: 0; transition: opacity 0.3s ease-out; }
     border-radius: 6px;
     font-weight: 600;
     border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
     transition: all 0.3s ease;
-}
-.order-box {
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 2.5rem 3rem;
-    transition: box-shadow 0.3s ease;
-}
-.order-box:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
-.whatsapp-box h3 { font-size: 1.4rem; font-weight: 600; color: var(--whatsapp-dark); margin-bottom: 1.25rem; }
-@media (max-width: 768px) {
-    .order-box, .gesundde-box { padding: 2rem 1.5rem; }
 }
 .btn-whatsapp.btn-lg { padding: 0.75rem 1.75rem; font-size: 1.05rem; }
 .btn-whatsapp:hover { background: var(--whatsapp-dark); color: #fff; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(37,211,102,0.3); }
@@ -423,39 +460,13 @@ body.fade-out { opacity: 0; transition: opacity 0.3s ease-out; }
     border-radius: 6px;
     font-weight: 600;
     border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
     transition: all 0.3s ease;
 }
 .btn-gesundde:hover { background: var(--gesundde-dark); color: #fff !important; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(209,63,75,0.3); }
-
-.gesundde-box {
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 2.5rem 3rem;
-    margin-top: 3rem;
-    transition: box-shadow 0.3s ease;
-}
-.gesundde-box:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
-.gesundde-img-link {
-    display: inline-block;
-    cursor: pointer;
-    transition: transform 0.2s, opacity 0.2s;
-}
-.gesundde-img-link:hover { opacity: 0.9; transform: scale(1.02); }
-.gesundde-img {
-    width: 500px;
-    max-width: 100%;
-    height: auto;
-    max-height: 1000px;
-    object-fit: contain;
-    border-radius: 12px;
-}
-@media (max-width: 768px) {
-    .gesundde-img { width: 280px; max-height: 560px; }
-}
-.gesundde-box h3 { font-size: 1.4rem; font-weight: 600; color: #d13f4b; margin-bottom: 1rem; }
-.gesundde-box p { color: var(--text-muted); font-size: 1.05rem; line-height: 1.7; }
-.gesundde-qr-img { max-width: 220px; border-radius: 8px; }
 .btn-gesundde.btn-lg { padding: 0.75rem 1.75rem; font-size: 1.05rem; }
 
 /* Wolt */
@@ -466,53 +477,14 @@ body.fade-out { opacity: 0; transition: opacity 0.3s ease-out; }
     border-radius: 6px;
     font-weight: 600;
     border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
     transition: all 0.3s ease;
 }
 .btn-wolt:hover { background: var(--wolt-dark); color: #fff !important; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,157,224,0.3); }
 .btn-wolt.btn-lg { padding: 0.75rem 1.75rem; font-size: 1.05rem; }
-
-.wolt-box {
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 2.5rem 3rem;
-    margin-top: 3rem;
-    transition: box-shadow 0.3s ease;
-}
-.wolt-box:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
-.wolt-img-link {
-    display: inline-block;
-    text-decoration: none !important;
-    cursor: pointer;
-    transition: transform 0.2s, opacity 0.2s;
-}
-.wolt-img-link:hover { opacity: 0.9; transform: scale(1.02); }
-.wolt-badge {
-    width: 320px;
-    max-width: 100%;
-    aspect-ratio: 1 / 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.75rem;
-    padding: 2rem;
-    border-radius: 24px;
-    background: linear-gradient(145deg, var(--wolt), var(--wolt-dark));
-    color: #fff;
-    box-shadow: 0 10px 30px rgba(0,157,224,0.25);
-}
-.wolt-logo { font-size: 3.5rem; font-weight: 700; letter-spacing: -1px; line-height: 1; }
-.wolt-badge-icon { font-size: 3rem; line-height: 1; }
-.wolt-badge-text { font-size: 1.05rem; font-weight: 500; text-align: center; }
-@media (max-width: 768px) {
-    .wolt-box { padding: 2rem 1.5rem; }
-    .wolt-badge { width: 240px; }
-    .wolt-logo { font-size: 2.75rem; }
-}
-.wolt-box h3 { font-size: 1.4rem; font-weight: 600; color: var(--wolt); margin-bottom: 1rem; }
-.wolt-box p { color: var(--text-muted); font-size: 1.05rem; line-height: 1.7; }
-.wolt-qr-img { max-width: 220px; border-radius: 8px; }
 
 /* Flink */
 .btn-flink {
@@ -522,12 +494,17 @@ body.fade-out { opacity: 0; transition: opacity 0.3s ease-out; }
     border-radius: 6px;
     font-weight: 600;
     border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
     transition: all 0.3s ease;
 }
 .btn-flink:hover { background: var(--flink-dark); color: #fff !important; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(234,29,93,0.3); }
 .btn-flink.btn-lg { padding: 0.75rem 1.75rem; font-size: 1.05rem; }
 
-.flink-box {
+/* Order Boxes */
+.order-box, .gesundde-box, .wolt-box, .flink-box {
     background: #fff;
     border: 1px solid var(--border);
     border-radius: 12px;
@@ -535,15 +512,33 @@ body.fade-out { opacity: 0; transition: opacity 0.3s ease-out; }
     margin-top: 3rem;
     transition: box-shadow 0.3s ease;
 }
-.flink-box:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
-.flink-img-link {
+.order-box { margin-top: 0; }
+.order-box:hover, .gesundde-box:hover, .wolt-box:hover, .flink-box:hover {
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+}
+.whatsapp-box h3 { font-size: 1.4rem; font-weight: 600; color: var(--whatsapp-dark); margin-bottom: 1.25rem; }
+.gesundde-box h3 { font-size: 1.4rem; font-weight: 600; color: #d13f4b; margin-bottom: 1rem; }
+.wolt-box h3 { font-size: 1.4rem; font-weight: 600; color: var(--wolt); margin-bottom: 1rem; }
+.flink-box h3 { font-size: 1.4rem; font-weight: 600; color: var(--flink); margin-bottom: 1rem; }
+
+.gesundde-box p, .wolt-box p, .flink-box p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+/* Unified Brand Badges */
+.brand-badge-link {
     display: inline-block;
     text-decoration: none !important;
     cursor: pointer;
-    transition: transform 0.2s, opacity 0.2s;
+    transition: transform 0.25s ease, opacity 0.25s ease;
 }
-.flink-img-link:hover { opacity: 0.9; transform: scale(1.02); }
-.flink-badge {
+.brand-badge-link:hover {
+    opacity: 0.95;
+    transform: translateY(-4px);
+}
+.brand-badge {
     width: 320px;
     max-width: 100%;
     aspect-ratio: 1 / 1;
@@ -551,24 +546,60 @@ body.fade-out { opacity: 0; transition: opacity 0.3s ease-out; }
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 0.75rem;
-    padding: 2rem;
+    gap: 1.25rem;
+    padding: 2.25rem 1.75rem;
     border-radius: 24px;
-    background: linear-gradient(145deg, var(--flink), var(--flink-dark));
     color: #fff;
-    box-shadow: 0 10px 30px rgba(234,29,93,0.25);
+    transition: all 0.3s ease;
 }
-.flink-logo { font-size: 3.5rem; font-weight: 700; letter-spacing: -1px; line-height: 1; }
-.flink-badge-icon { font-size: 3rem; line-height: 1; }
-.flink-badge-text { font-size: 1.05rem; font-weight: 500; text-align: center; }
+.brand-badge-logo {
+    max-width: 200px;
+    max-height: 52px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 6px rgba(0,0,0,0.18));
+}
+.brand-badge-icon {
+    font-size: 2.75rem;
+    line-height: 1;
+    opacity: 0.95;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+}
+.brand-badge-text {
+    font-size: 1.02rem;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.35;
+    letter-spacing: -0.2px;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.25);
+}
+
+.gesundde-badge {
+    background: linear-gradient(145deg, #a11541, #6e0928);
+    box-shadow: 0 10px 30px rgba(161,21,65,0.28);
+}
+.wolt-badge {
+    background: linear-gradient(145deg, var(--wolt), var(--wolt-dark));
+    box-shadow: 0 10px 30px rgba(0,157,224,0.28);
+}
+.flink-badge {
+    background: linear-gradient(145deg, var(--flink), var(--flink-dark));
+    box-shadow: 0 10px 30px rgba(234,29,93,0.28);
+}
+
 @media (max-width: 768px) {
-    .flink-box { padding: 2rem 1.5rem; }
-    .flink-badge { width: 240px; }
-    .flink-logo { font-size: 2.75rem; }
+    .order-box, .gesundde-box, .wolt-box, .flink-box { padding: 2rem 1.5rem; }
+    .brand-badge { width: 250px; padding: 1.75rem 1.25rem; gap: 1rem; }
+    .brand-badge-logo { max-width: 160px; max-height: 42px; }
+    .brand-badge-icon { font-size: 2.25rem; }
+    .brand-badge-text { font-size: 0.95rem; }
 }
-.flink-box h3 { font-size: 1.4rem; font-weight: 600; color: var(--flink); margin-bottom: 1rem; }
-.flink-box p { color: var(--text-muted); font-size: 1.05rem; line-height: 1.7; }
-.flink-qr-img { max-width: 220px; border-radius: 8px; }
+
+.gesundde-qr-img, .wolt-qr-img, .flink-qr-img {
+    max-width: 220px;
+    border-radius: 8px;
+}
 
 .qr-img { max-width: 160px; border-radius: 6px; }
 
